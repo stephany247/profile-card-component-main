@@ -1,100 +1,152 @@
-# Frontend Mentor - Profile card component
+# Frontend Mentor - Profile Card Component Solution
 
-![Design preview for the Profile card component coding challenge](preview.jpg)
+This is my solution to the [Profile card component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/profile-card-component-cfArpWshJ). Frontend Mentor challenges help improve coding skills by building realistic projects from provided designs.
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+  - [AI Collaboration](#ai-collaboration)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a basic understanding of HTML and CSS.**
+### The challenge
 
-## The challenge
+The goal was to build a responsive profile card component that closely matches the desktop and mobile designs provided by Frontend Mentor.
 
-Your challenge is to build out this profile card component and get it looking as close to the design as possible.
+The main requirements were to:
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+- Create a profile card with a header pattern, circular avatar, name, age, and location.
+- Display profile statistics in three evenly spaced columns.
+- Reproduce the decorative background patterns using the provided SVG assets.
+- Ensure the layout adapts to different screen sizes.
+- Use consistent colors, typography, spacing, and alignment.
+- Include a footer attribution linking to Frontend Mentor.
 
-### Want some support on the challenge? 
+### Screenshot
 
-[Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+#### Desktop
 
-## Where to find everything
+![Desktop screenshot](./images/screenshot-desktop.png)
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design.
+#### Mobile
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`.
+![Mobile screenshot](./images/screenshot-mobile.png)
 
-If you would like the Figma design file to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+### Links
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+- Github repo URL: [Github repo URL](https://github.com/stephany247/profile-card-component-main)
+- Live Site URL: [Deployed project URL](https://stephany247.github.io/profile-card-component-main/)
 
-## Using AI coding assistants
+## My process
 
-We've included two files to help you if you're using AI coding assistants (like Claude, GitHub Copilot, Cursor, etc.) while working on this challenge:
+### Built with
 
-- `AGENTS.md` - Contains detailed instructions for AI assistants on how to help you with this challenge. It's tailored to this challenge's difficulty level, so the AI will provide guidance appropriate to your learning stage—offering more support for beginner challenges and encouraging more independence on advanced ones.
-- `CLAUDE.md` - A pointer file that directs Claude-based tools to the AGENTS.md instructions.
+- Semantic HTML5 markup
+- CSS custom properties for consistent colors
+- CSS Grid for layout and alignment
+- Flexibility and responsive CSS techniques
+- Absolute positioning for the overlapping profile avatar
+- CSS pseudo-elements and background positioning
+- SVG assets for decorative background patterns
+- Google Fonts — Kumbh Sans
+- Mobile-responsive design using CSS media queries
+- Git and GitHub for version control
 
-**How to use them:** You don't need to do anything! These files are automatically detected by most AI coding tools. The AI will read them and adjust its behavior to be a better learning partner—guiding you toward solutions rather than just giving you the answers.
+### What I learned
 
-**Note:** These files are designed to help you *learn*, not to do the work for you. The AI is instructed to ask questions, give hints, and explain concepts rather than writing complete solutions.
+This project helped me improve my understanding of responsive layouts, CSS positioning, background patterns, and reusable design tokens.
 
-## Building your project
+**1. Using CSS custom properties**
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+I learned how CSS variables make it easier to maintain consistent colors and update a design without repeating color values throughout the stylesheet.
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+```css
+:root {
+  --blue-600: hsl(185, 75%, 39%);
+  --navy-950: hsl(229, 23%, 23%);
+  --gray-500: hsl(227, 10%, 46%);
+  --gray-100: hsl(225, 10%, 92%);
+  --white: hsl(0, 0%, 100%);
+}
+```
 
-## Deploying your project
+**2. Positioning an overlapping profile image**
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+I used absolute positioning and a horizontal transform to center the avatar over the boundary between the card header and the content area.
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+```css
+.profile-avatar {
+  position: absolute;
+  top: 88px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid var(--white);
+  border-radius: 50%;
+}
+```
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://www.frontendmentor.io/guides/hosting-your-solution).
+**3. Creating a responsive statistics section**
 
-## Create a custom `README.md`
+CSS Grid made it straightforward to distribute the statistics evenly across three columns.
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+```css
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+```
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+**4. Working with SVG background patterns**
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+I learned that using the original SVG assets provides a closer match to the supplied design than recreating complex decorative patterns with CSS gradients. I also practiced adjusting background positioning separately for desktop and mobile screens.
 
-## Submitting your solution
+### Continued development
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://www.frontendmentor.io/guides/how-to-submit-solutions) for tips on how to do this.
+In future projects, I want to continue improving my skills in:
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+- Matching reference designs more precisely across different viewport sizes.
+- Writing cleaner, more maintainable CSS.
+- Improving accessibility through semantic HTML, readable contrast, and visible keyboard focus states.
+- Understanding responsive background positioning and SVG scaling.
+- Testing layouts at different screen widths and browser zoom levels.
 
-## Sharing your solution
+### Useful resources
 
-There are multiple places you can share your solution:
+- [Frontend Mentor](https://www.frontendmentor.io/) — Provided the challenge and design reference for this project.
+- [MDN Web Docs — CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout) — Helped with understanding grid-based layouts.
+- [MDN Web Docs — CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties) — A useful reference for reusable CSS variables.
+- [MDN Web Docs — Background Position](https://developer.mozilla.org/en-US/docs/Web/CSS/background-position) — Useful for positioning the decorative SVG patterns.
+- [The Markdown Guide](https://www.markdownguide.org/) — Reference for formatting and organizing this README.
 
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community).
-2. Share on [X (formerly Twitter)](https://x.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in your post. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on [LinkedIn](https://www.linkedin.com/company/frontend-mentor/).
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+### AI Collaboration
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback.
+I used ChatGPT as a development assistant during this project.
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+- **Debugging:** Identified inconsistent CSS variable names and helped resolve styling issues.
+- **Responsive design:** Explored adjustments to the desktop and mobile layouts.
+- **Styling:** Refined the profile card, decorative SVG backgrounds, and footer attribution.
+- **Code review:** Reviewed CSS structure and suggested improvements to maintainability.
+- **Documentation:** Helped organize the project README and document key learning points.
 
-## Got feedback for us?
+AI suggestions were reviewed and adapted to the project rather than being treated as a substitute for testing and understanding the code.
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
+## Author
 
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
+- Frontend Mentor - [@stephany247](https://www.frontendmentor.io/profile/stephany247)
+- GitHub - [GitHub profile](https://github.com/stephany247)
 
-**Have fun building!** 🚀
+
+## Acknowledgments
+
+Thanks to [Frontend Mentor](https://www.frontendmentor.io/) for providing the design challenge and assets. The project was also an opportunity to practice responsive CSS, SVG backgrounds, and translating a visual reference into a working web page.
