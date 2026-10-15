@@ -23,7 +23,7 @@ body {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: 24px;
+  padding: clamp(1rem, 4vw, 1.5rem);
   background-color: var(--blue-600);
 
   /* Original decorative SVG patterns */
@@ -39,7 +39,7 @@ body {
 
 h1,
 h2 {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--navy-950);
   line-height: 1.4;
@@ -90,13 +90,13 @@ h2 {
 .profile-age {
   color: var(--gray-500);
   font-weight: 400;
-  margin-left: 3px;
+  margin-inline-start: 3px;
 }
 
 .profile-location {
   color: var(--gray-500);
-  font-size: 14px;
-  margin-top: 8px;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
 }
 
 /* Divider */
@@ -109,7 +109,7 @@ h2 {
 .profile-stats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  padding: 26px 20px;
+  padding: 1.625rem 1.25rem;
 }
 
 .stat p {
@@ -150,9 +150,8 @@ h2 {
 }
 
 /* Mobile layout */
-@media (max-width: 600px) {
+@media (max-width: 37.5rem) {
   body {
-    padding: 24px;
     background-position:
       right 42vw bottom 45vh,
       left 42vw top 45vh;
@@ -173,11 +172,17 @@ h2 {
   }
 
   .profile-info {
-    padding: 73px 20px 24px;
+    padding: 4.5625rem 1.25rem 1.5rem;
   }
 
   .attribution {
     bottom: 12px;
     font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .attribution a {
+    transition: none;
   }
 }
